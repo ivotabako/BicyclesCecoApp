@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace BicyclesCecoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class UpdateOrDeleteCustomer : ContentPage
+	public partial class UpdateOrDeleteEmployee : ContentPage
 	{
-		public UpdateOrDeleteCustomer ()
+		public UpdateOrDeleteEmployee ()
 		{
 			InitializeComponent ();
 		}

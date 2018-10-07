@@ -1,53 +1,49 @@
 ﻿using BicyclesCecoApp.Models;
 using BicyclesCecoApp.Views;
 using Realms;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using Xamarin.Forms;
 
 namespace BicyclesCecoApp.ViewModels
 {
-    class CustomerViewModel : INotifyPropertyChanged
+    public class EmployeeViewModel : INotifyPropertyChanged
     {
-        Realm _getRealmInstance = Realm.GetInstance();
-
-        public CustomerViewModel()
-        {
-            // supply the public ListOfCustomerDetails with the retrieved list of details
-            ListOfCustomerDetails = _getRealmInstance.All<CustomerDetails>().ToList();
-        }
+        private List<Employee> _listOfEmployees;
+        private Employee _employee = new Employee();
+        private Realm _getRealmInstance = Realm.GetInstance();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public EmployeeViewModel()
+        {
+            // supply the public ListOfEmployee with the retrieved list of details
+            ListOfEmployees = _getRealmInstance.All<Employee>().ToList();
+        }
+      
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        }        
 
-        private List<CustomerDetails> _listOfCustomerDetails;
-
-        public List<CustomerDetails> ListOfCustomerDetails
+        public List<Employee> ListOfEmployees
         {
-            get { return _listOfCustomerDetails; }
+            get { return _listOfEmployees; }
             set
             {
-                _listOfCustomerDetails = value;
+                _listOfEmployees = value;
                 OnPropertyChanged(); // Added the OnPropertyChanged Method
             }
         }
-
-        private CustomerDetails _customerDetails = new CustomerDetails();
-
-        public CustomerDetails CustomerDetails
+        
+        public Employee Employee
         {
-            get { return _customerDetails; }
+            get { return _employee; }
             set
             {
-                _customerDetails = value;
+                _employee = value;
                 OnPropertyChanged(); // Add the OnPropertyChanged();
             }
         }
@@ -59,10 +55,10 @@ namespace BicyclesCecoApp.ViewModels
             {
                 return new Command(() => {
                     // for auto increment the id upon adding
-                    _customerDetails.CustomerId = _getRealmInstance.All<CustomerDetails>().Count() + 1;
+                    _employee.ID = _getRealmInstance.All<Employee>().Count() + 1;
                     _getRealmInstance.Write(() =>
                     {
-                        _getRealmInstance.Add(_customerDetails); // Add the whole set of details
+                        _getRealmInstance.Add(_employee); // Add the whole set of details
                     });
                 });
             }
@@ -75,17 +71,26 @@ namespace BicyclesCecoApp.ViewModels
                 return new Command(() =>
                 {
                     // instantiate to supply the new set of details
-                    var customerDetailsUpdate = new CustomerDetails
+                    var EmployeeUpdate = new Employee
                     {
-                        CustomerId = _customerDetails.CustomerId,
-                        CustomerName = _customerDetails.CustomerName,
-                        CustomerAge = _customerDetails.CustomerAge
+                        ID = _employee.ID,
+                        BicycleId = _employee.BicycleId,
+                        Card = _employee.Card,
+                        Deposit = _employee.Deposit,
+                        FirstName = _employee.FirstName,
+                        LastName = _employee.LastName,
+                        LockerCode = _employee.LockerCode,
+                        PaymentLastWeek = _employee.PaymentLastWeek,
+                        PaymentThisWeek = _employee.PaymentThisWeek,
+                        PaymentThreeWeeksAgo = _employee.PaymentThreeWeeksAgo,
+                        PaymentTwoWeeksAgo = _employee.PaymentTwoWeeksAgo,
+                        Shift = _employee.Shift
                     };
 
                     _getRealmInstance.Write(() =>
                     {
                         // when there's id match, the details will be replaced except by primary key
-                        _getRealmInstance.Add(customerDetailsUpdate, update: true);
+                        _getRealmInstance.Add(EmployeeUpdate, update: true);
                     });
                 });
             }
@@ -98,12 +103,12 @@ namespace BicyclesCecoApp.ViewModels
                 return new Command(() =>
                 {
                     // get the details with specific id
-                    var getAllCustomerDetailsById = _getRealmInstance.All<CustomerDetails>().First(x => x.CustomerId == _customerDetails.CustomerId);
+                    var getAllEmployeeById = _getRealmInstance.All<Employee>().First(x => x.ID == _employee.ID);
 
                     using (var transaction = _getRealmInstance.BeginWrite())
                     {
                         // remove all details
-                        _getRealmInstance.Remove(getAllCustomerDetailsById);
+                        _getRealmInstance.Remove(getAllEmployeeById);
                         transaction.Commit();
                     };
                 });
@@ -117,7 +122,7 @@ namespace BicyclesCecoApp.ViewModels
             {
                 return new Command(async () =>
                 {
-                    await App.Current.MainPage.Navigation.PushAsync(new ListOfCustomers());
+                    await App.Current.MainPage.Navigation.PushAsync(new ListOfEmployees());
                 });
             }
         }
@@ -128,7 +133,7 @@ namespace BicyclesCecoApp.ViewModels
             {
                 return new Command(async () =>
                 {
-                    await App.Current.MainPage.Navigation.PushAsync(new CreateCustomer());
+                    await App.Current.MainPage.Navigation.PushAsync(new CreateEmployee());
                 });
             }
         }
@@ -139,7 +144,21 @@ namespace BicyclesCecoApp.ViewModels
             {
                 return new Command(async () =>
                 {
-                    await App.Current.MainPage.Navigation.PushAsync(new UpdateOrDeleteCustomer());
+                    await App.Current.MainPage.Navigation.PushAsync(new UpdateOrDeleteEmployee());
+                });
+            }
+        }
+
+        public Command SendSMSCommand
+        {
+            get
+            {
+                return new Command( async () =>
+                {
+                    var mng = new SmsManager();
+                    await mng.SendSms("ivo e super", "+34687612919");
+
+                    //CrossMessaging.Current.SmsMessenger.SendSampleBackgroundSms();
                 });
             }
         }
