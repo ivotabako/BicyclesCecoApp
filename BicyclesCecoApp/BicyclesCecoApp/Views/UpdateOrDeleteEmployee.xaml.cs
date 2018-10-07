@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BicyclesCecoApp.Models;
+using BicyclesCecoApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,18 @@ namespace BicyclesCecoApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class UpdateOrDeleteEmployee : ContentPage
 	{
-		public UpdateOrDeleteEmployee ()
+        EmployeeViewModel employeeViewModel;
+        public UpdateOrDeleteEmployee ()
 		{
 			InitializeComponent ();
 		}
-	}
+
+        public UpdateOrDeleteEmployee(Employee post)
+        {
+            InitializeComponent();
+            employeeViewModel = new EmployeeViewModel();
+            employeeViewModel.Employee = post;
+            this.BindingContext = employeeViewModel;
+        }
+    }
 }

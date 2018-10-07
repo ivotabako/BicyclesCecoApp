@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BicyclesCecoApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,11 @@ namespace BicyclesCecoApp.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        async void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        {
+            var postDetailPage = new UpdateOrDeleteEmployee(e.SelectedItem as Employee);
+            await Navigation.PushAsync(postDetailPage);
+        }
+    }
 }

@@ -8,6 +8,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <ListView ItemsSource="{Binding ListOfEmployees}"
+                  ItemSelected="Handle_ItemSelected"
           HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
