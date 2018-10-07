@@ -13,7 +13,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10">
+                        <StackLayout Padding="10" Orientation="Horizontal">
                             <Label Text="{Binding ID}"/>
                             <Label Text="{Binding FirstName}"/>
                             <Label Text="{Binding LastName}"/>

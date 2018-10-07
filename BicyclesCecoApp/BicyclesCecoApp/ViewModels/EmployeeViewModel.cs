@@ -60,6 +60,7 @@ namespace BicyclesCecoApp.ViewModels
                     {
                         _getRealmInstance.Add(_employee); // Add the whole set of details
                     });
+                    App.Current.MainPage.Navigation.PushAsync(new ListOfEmployees());
                 });
             }
         }
@@ -92,6 +93,7 @@ namespace BicyclesCecoApp.ViewModels
                         // when there's id match, the details will be replaced except by primary key
                         _getRealmInstance.Add(EmployeeUpdate, update: true);
                     });
+                    App.Current.MainPage.Navigation.PushAsync(new ListOfEmployees());
                 });
             }
         }
@@ -111,6 +113,7 @@ namespace BicyclesCecoApp.ViewModels
                         _getRealmInstance.Remove(getAllEmployeeById);
                         transaction.Commit();
                     };
+                    App.Current.MainPage.Navigation.PushAsync(new ListOfEmployees());
                 });
             }
         }
