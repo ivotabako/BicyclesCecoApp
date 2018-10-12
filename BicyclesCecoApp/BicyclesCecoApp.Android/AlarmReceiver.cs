@@ -48,7 +48,7 @@ namespace BicyclesCecoApp
                     if ((int)response.StatusCode == 200)
                     {
                         item.IsLocked = !item.IsLocked;
-
+                        item.ForceSend = false;
                         var res = Newtonsoft.Json.Linq.JObject.Parse(response.Content);
                         foreach (var i in res["ids"])
                         {

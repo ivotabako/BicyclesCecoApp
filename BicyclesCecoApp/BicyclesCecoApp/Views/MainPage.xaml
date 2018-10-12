@@ -14,7 +14,7 @@
           Command="{Binding NavToCreateCommand}"/>
         <Button Text="Update or Delete Employee by Id"
           Command="{Binding NavToUpdateDeleteCommand}"/>
-        <Button Text="Send SMS" Command="{Binding SendSMSCommand}"/>
+        
     </StackLayout>
 
 </ContentPage>

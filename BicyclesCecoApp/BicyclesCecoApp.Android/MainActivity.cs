@@ -3,7 +3,6 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
-using Xamarin.Essentials;
 using Android.Content;
 
 namespace BicyclesCecoApp.Droid
@@ -35,9 +34,9 @@ namespace BicyclesCecoApp.Droid
 
             var alarmManager = GetSystemService(AlarmService).JavaCast<AlarmManager>();
             //alarmManager.Set(AlarmType.ElapsedRealtime, SystemClock.ElapsedRealtime() + 25 * 1000, pending);
-            alarmManager.SetRepeating(AlarmType.ElapsedRealtimeWakeup, 
-                SystemClock.ElapsedRealtime() + 30 * 1000, 
-                SystemClock.ElapsedRealtime() + 30 * 1000, pending);
+            alarmManager.SetRepeating(AlarmType.ElapsedRealtimeWakeup,
+                SystemClock.ElapsedRealtime() + 30 * 1000,
+                30 * 1000, pending);
 
         }
 

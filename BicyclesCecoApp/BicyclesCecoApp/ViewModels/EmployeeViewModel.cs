@@ -159,18 +159,18 @@ namespace BicyclesCecoApp.ViewModels
             }
         }
 
-        public Command SendSMSCommand
-        {
-            get
-            {
-                return new Command( async () =>
-                {
-                    var mng = new SmsManager();
-                    await mng.SendSms("ivo e super", _employee.CardNumber);
+        //public Command SendSMSCommand
+        //{
+        //    get
+        //    {
+        //        return new Command( async () =>
+        //        {
+        //            var mng = new SmsManager();
+        //            await mng.SendSms("ivo e super", _employee.CardNumber);
 
-                    //CrossMessaging.Current.SmsMessenger.SendSampleBackgroundSms();
-                });
-            }
-        }
+        //            //CrossMessaging.Current.SmsMessenger.SendSampleBackgroundSms();
+        //        });
+        //    }
+        //}
     }
 }

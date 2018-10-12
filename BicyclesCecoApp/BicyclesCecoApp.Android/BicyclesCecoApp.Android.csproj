@@ -26,7 +26,7 @@
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
@@ -73,7 +73,7 @@
       <Version>106.5.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
-      <Version>0.10.0-preview</Version>
+      <Version>0.11.0-preview</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="3.3.0.871608-pre2" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
