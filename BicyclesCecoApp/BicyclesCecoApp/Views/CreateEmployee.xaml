@@ -13,6 +13,9 @@
         <Label Text="Enter Last Name"/>
         <Entry Text="{Binding Employee.LastName, Mode=TwoWay}"/>
 
+        <Label Text="Card Number"/>
+        <Entry Text="{Binding Employee.CardNumber, Mode=TwoWay}"/>
+
         <Button Text="Create"
           Command="{Binding CreateCommand}"/>
     </StackLayout>

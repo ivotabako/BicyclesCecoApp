@@ -17,6 +17,7 @@
                             <Label Text="{Binding ID}"/>
                             <Label Text="{Binding FirstName}"/>
                             <Label Text="{Binding LastName}"/>
+                            <Label Text="{Binding CardNumber}"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

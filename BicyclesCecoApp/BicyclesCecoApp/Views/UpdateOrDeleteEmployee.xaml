@@ -17,6 +17,10 @@
             <Label Text="Enter Employee Last Name"/>
             <Entry Text="{Binding Employee.LastName, Mode=TwoWay}"/>
 
+            <Label Text="Card Number"/>
+            <Entry Text="{Binding Employee.CardNumber, Mode=TwoWay}"/>
+
+            
             <Button Text="Update"
           Command="{Binding UpdateCommand}"/>
 

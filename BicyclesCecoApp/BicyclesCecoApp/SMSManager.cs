@@ -26,20 +26,6 @@ namespace BicyclesCecoApp
             }
         }
 
-        //public static void SendSampleBackgroundSms(this ISmsTask smsTask)
-        //{
-        //    if (smsTask.CanSendSmsInBackground)
-        //    {
-        //        smsTask.SendSmsInBackground("+34687612919", "Well hello there from Xam.Messaging.Plugin. Some special characters. ÇÇẪ");
-        //    }
-        //}
-
-        //public static void SendSampleMultipleSms(this ISmsTask smsTask)
-        //{
-        //    if (smsTask.CanSendSms)
-        //    {
-        //        smsTask.SendSms("+272193332320000;+272323219330001", "Well hello there from Xam.Messaging.Plugin");
-        //    }
-        //}
+        
     }
 }

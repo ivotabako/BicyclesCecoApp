@@ -81,6 +81,13 @@ namespace BicyclesCecoApp.ViewModels
                         FirstName = _employee.FirstName,
                         LastName = _employee.LastName,
                         LockerCode = _employee.LockerCode,
+                        CardNumber = _employee.CardNumber,
+                        LockUnlockMessage = _employee.LockUnlockMessage,
+                        ReceivedEvening = _employee.ReceivedEvening,
+                        IsLocked = _employee.IsLocked,
+                        IsInUse = _employee.IsInUse,
+                        ForceSend = _employee.ForceSend,
+                        ReceivedMorning = _employee.ReceivedMorning,
                         PaymentLastWeek = _employee.PaymentLastWeek,
                         PaymentThisWeek = _employee.PaymentThisWeek,
                         PaymentThreeWeeksAgo = _employee.PaymentThreeWeeksAgo,
@@ -159,7 +166,7 @@ namespace BicyclesCecoApp.ViewModels
                 return new Command( async () =>
                 {
                     var mng = new SmsManager();
-                    await mng.SendSms("ivo e super", "+34687612919");
+                    await mng.SendSms("ivo e super", _employee.CardNumber);
 
                     //CrossMessaging.Current.SmsMessenger.SendSampleBackgroundSms();
                 });
