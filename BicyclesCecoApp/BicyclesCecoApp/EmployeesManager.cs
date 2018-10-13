@@ -12,7 +12,7 @@ namespace BicyclesCecoApp
             if (!item.IsLocked &&
                 item.IsInUse &&
                 DateTime.UtcNow.Hour <= 6 && DateTime.UtcNow.Hour >= 20 &&
-                item.Shift == "D")
+                item.Shift.ToUpper() == "D")
             {
                 return true;
             }
@@ -25,7 +25,7 @@ namespace BicyclesCecoApp
             if (item.IsLocked &&
                 item.IsInUse &&
                 DateTime.UtcNow.Hour >= 7 && DateTime.UtcNow.Hour <= 19 &&
-                item.Shift == "D")
+                item.Shift.ToUpper() == "D")
             {
                 return true;
             }
@@ -38,7 +38,7 @@ namespace BicyclesCecoApp
             if (!item.IsLocked &&
                 item.IsInUse &&
                 DateTime.UtcNow.Hour >= 7 && DateTime.UtcNow.Hour <= 19 &&
-                item.Shift == "N")
+                item.Shift.ToUpper() == "N")
             {
                 return true;
             }
@@ -51,7 +51,7 @@ namespace BicyclesCecoApp
             if (item.IsLocked &&
                 item.IsInUse &&
                 DateTime.UtcNow.Hour <= 6 && DateTime.UtcNow.Hour >= 20 &&
-                item.Shift == "N")
+                item.Shift.ToUpper() == "N")
             {
                 return true;
             }

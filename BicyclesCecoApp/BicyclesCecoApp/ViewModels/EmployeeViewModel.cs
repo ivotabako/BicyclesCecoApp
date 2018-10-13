@@ -75,19 +75,18 @@ namespace BicyclesCecoApp.ViewModels
                     var EmployeeUpdate = new Employee
                     {
                         ID = _employee.ID,
-                        BicycleId = _employee.BicycleId,
-                        Card = _employee.Card,
+                        BicycleId = _employee.BicycleId,                        
                         Deposit = _employee.Deposit,
                         FirstName = _employee.FirstName,
                         LastName = _employee.LastName,
                         LockerCode = _employee.LockerCode,
                         CardNumber = _employee.CardNumber,
                         LockUnlockMessage = _employee.LockUnlockMessage,
-                        ReceivedEvening = _employee.ReceivedEvening,
+                        //ReceivedEvening = _employee.ReceivedEvening,
                         IsLocked = _employee.IsLocked,
                         IsInUse = _employee.IsInUse,
                         ForceSend = _employee.ForceSend,
-                        ReceivedMorning = _employee.ReceivedMorning,
+                        //ReceivedMorning = _employee.ReceivedMorning,
                         PaymentLastWeek = _employee.PaymentLastWeek,
                         PaymentThisWeek = _employee.PaymentThisWeek,
                         PaymentThreeWeeksAgo = _employee.PaymentThreeWeeksAgo,
@@ -159,18 +158,16 @@ namespace BicyclesCecoApp.ViewModels
             }
         }
 
-        //public Command SendSMSCommand
-        //{
-        //    get
-        //    {
-        //        return new Command( async () =>
-        //        {
-        //            var mng = new SmsManager();
-        //            await mng.SendSms("ivo e super", _employee.CardNumber);
-
-        //            //CrossMessaging.Current.SmsMessenger.SendSampleBackgroundSms();
-        //        });
-        //    }
-        //}
+        public Command ForceLockUnlockCommand
+        {
+            get
+            {
+                return new Command( () =>
+               {
+                   var mng = new SmsManager();
+                   mng.Send(_employee); 
+                });
+            }
+        }
     }
 }

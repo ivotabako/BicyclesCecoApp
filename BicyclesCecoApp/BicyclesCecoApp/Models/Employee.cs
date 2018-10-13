@@ -11,7 +11,7 @@ namespace BicyclesCecoApp.Models
         public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Card { get; set; }
+        
 
         public string LockerCode { get; set; }
         public string Deposit { get; set; }
@@ -21,8 +21,8 @@ namespace BicyclesCecoApp.Models
         public string CardNumber { get; set; }
         public string LockUnlockMessage { get; set; }
 
-        public bool ReceivedMorning { get; set; }
-        public bool ReceivedEvening { get; set; }
+        //public bool ReceivedMorning { get; set; }
+        //public bool ReceivedEvening { get; set; }
 
         public bool IsLocked { get; set; }
         public bool IsInUse { get; set; }

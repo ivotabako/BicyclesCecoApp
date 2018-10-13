@@ -12,8 +12,6 @@
           Command="{Binding NavToListCommand}"/>
         <Button Text="Create Employee Details"
           Command="{Binding NavToCreateCommand}"/>
-        <Button Text="Update or Delete Employee by Id"
-          Command="{Binding NavToUpdateDeleteCommand}"/>
         
     </StackLayout>
 

@@ -6,7 +6,8 @@
     <ContentPage.BindingContext>
         <customerVm:EmployeeViewModel/>
     </ContentPage.BindingContext>
-    <StackLayout Padding="20">
+    <ScrollView>
+    <StackLayout Orientation="Vertical" >
         <Label Text="Enter First Name"/>
         <Entry Text="{Binding Employee.FirstName, Mode=TwoWay}"/>
 
@@ -16,7 +17,41 @@
         <Label Text="Card Number"/>
         <Entry Text="{Binding Employee.CardNumber, Mode=TwoWay}"/>
 
+        <Label Text="Locker Code"/>
+        <Entry Text="{Binding Employee.LockerCode, Mode=TwoWay}"/>
+
+        <Label Text="Deposit"/>
+        <Entry Text="{Binding Employee.Deposit, Mode=TwoWay}"/>
+
+        <Label Text="Shift"/>
+        <Entry Text="{Binding Employee.Shift, Mode=TwoWay}"/>
+
+        <Label Text="Bicycle Id"/>
+        <Entry Text="{Binding Employee.BicycleId, Mode=TwoWay}"/>
+
+        <Label Text="Lock Unlock Message"/>
+        <Entry Text="{Binding Employee.LockUnlockMessage, Mode=TwoWay}"/>
+
+        <Label Text="Is Locked"/>
+        <Entry Text="{Binding Employee.IsLocked, Mode=TwoWay}"/>
+
+        <Label Text="Is in use"/>
+        <Entry Text="{Binding Employee.IsInUse, Mode=TwoWay}"/>
+
+        <Label Text="Payment thisWeek"/>
+        <Entry Text="{Binding Employee.PaymentThisWeek, Mode=TwoWay}"/>
+
+        <Label Text="Payment Last Week"/>
+        <Entry Text="{Binding Employee.PaymentLastWeek, Mode=TwoWay}"/>
+
+        <Label Text="Payment two Weeks ago"/>
+        <Entry Text="{Binding Employee.PaymentTwoWeeksAgo, Mode=TwoWay}"/>
+
+        <Label Text="Payment three Weeks ago"/>
+        <Entry Text="{Binding Employee.PaymentThreeWeeksAgo, Mode=TwoWay}"/>
+        
         <Button Text="Create"
           Command="{Binding CreateCommand}"/>
     </StackLayout>
+    </ScrollView>
 </ContentPage>

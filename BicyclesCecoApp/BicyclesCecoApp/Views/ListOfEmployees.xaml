@@ -14,10 +14,10 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10" Orientation="Horizontal">
-                            <Label Text="{Binding ID}"/>
+                            <Label Text="{Binding BicycleId}"/>
                             <Label Text="{Binding FirstName}"/>
-                            <Label Text="{Binding LastName}"/>
-                            <Label Text="{Binding CardNumber}"/>
+                            <Label Text="{Binding Shift}"/>
+                            <Label Text="{Binding IsInUse}"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
