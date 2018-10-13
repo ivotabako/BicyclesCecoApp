@@ -11,7 +11,7 @@ namespace BicyclesCecoApp
         {
             if (!item.IsLocked &&
                 item.IsInUse &&
-                DateTime.UtcNow.Hour <= 6 && DateTime.UtcNow.Hour >= 20 &&
+                (DateTime.UtcNow.Hour <= 6 || DateTime.UtcNow.Hour >= 20) &&
                 item.Shift.ToUpper() == "D")
             {
                 return true;
@@ -50,7 +50,7 @@ namespace BicyclesCecoApp
         {
             if (item.IsLocked &&
                 item.IsInUse &&
-                DateTime.UtcNow.Hour <= 6 && DateTime.UtcNow.Hour >= 20 &&
+                (DateTime.UtcNow.Hour <= 6 || DateTime.UtcNow.Hour >= 20) &&
                 item.Shift.ToUpper() == "N")
             {
                 return true;

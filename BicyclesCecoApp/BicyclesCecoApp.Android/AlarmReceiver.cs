@@ -29,6 +29,7 @@ namespace BicyclesCecoApp
                         EmployeesManager.ShouldUnlockNightly(item) ||
                         item.ForceSend)
                     {
+                        item.ForceSend = false;
                         var mng = new SmsManager();
                         mng.Send(item);
                         _getRealmInstance.Add(item, update: true);

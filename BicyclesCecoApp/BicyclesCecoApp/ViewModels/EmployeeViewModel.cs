@@ -167,10 +167,16 @@ namespace BicyclesCecoApp.ViewModels
                 {
                     _getRealmInstance.Write(() =>
                     {
-                        var mng = new SmsManager();
-                        mng.Send(_employee);
-                        _getRealmInstance.Add(_employee, update: true);                        
-                    });                    
+                        _employee.ForceSend = true;
+                        _getRealmInstance.Add(_employee, update: true);
+                    });
+
+                    //_getRealmInstance.Write(() =>
+                    //{
+                    //    var mng = new SmsManager();
+                    //    mng.Send(_employee);
+                    //    _getRealmInstance.Add(_employee, update: true);                        
+                    //});                    
                 });
             }
         }
