@@ -21,7 +21,7 @@
             <Entry Text="{Binding Employee.CardNumber, Mode=TwoWay}"/>
 
             <Label Text="Locker Code"/>
-            <Entry Text="{Binding Employee.LockerCOde, Mode=TwoWay}"/>
+            <Entry Text="{Binding Employee.LockerCode, Mode=TwoWay}"/>
 
             <Label Text="Deposit"/>
             <Entry Text="{Binding Employee.Deposit, Mode=TwoWay}"/>

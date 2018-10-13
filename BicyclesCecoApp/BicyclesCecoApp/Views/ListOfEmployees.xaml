@@ -18,6 +18,7 @@
                             <Label Text="{Binding FirstName}"/>
                             <Label Text="{Binding Shift}"/>
                             <Label Text="{Binding IsInUse}"/>
+                            <Label Text="{Binding IsLocked}"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
