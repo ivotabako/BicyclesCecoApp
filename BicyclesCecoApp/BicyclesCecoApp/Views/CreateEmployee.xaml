@@ -33,7 +33,7 @@
         <Entry Text="{Binding Employee.LockUnlockMessage, Mode=TwoWay}"/>
 
         <Label Text="Is Locked"/>
-        <Entry Text="{Binding Employee.IsLocked, Mode=TwoWay}"/>
+        <Entry IsEnabled="False" Text="{Binding Employee.IsLocked, Mode=TwoWay}" />
 
         <Label Text="Is in use"/>
         <Entry Text="{Binding Employee.IsInUse, Mode=TwoWay}"/>
