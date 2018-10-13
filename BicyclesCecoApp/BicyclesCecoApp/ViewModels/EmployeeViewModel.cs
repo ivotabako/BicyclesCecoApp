@@ -22,11 +22,11 @@ namespace BicyclesCecoApp.ViewModels
             // supply the public ListOfEmployee with the retrieved list of details
             ListOfEmployees = _getRealmInstance.All<Employee>().ToList();
         }
-      
+
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }        
+        }
 
         public List<Employee> ListOfEmployees
         {
@@ -37,7 +37,7 @@ namespace BicyclesCecoApp.ViewModels
                 OnPropertyChanged(); // Added the OnPropertyChanged Method
             }
         }
-        
+
         public Employee Employee
         {
             get { return _employee; }
@@ -53,7 +53,8 @@ namespace BicyclesCecoApp.ViewModels
         {
             get
             {
-                return new Command(() => {
+                return new Command(() =>
+                {
                     // for auto increment the id upon adding
                     _employee.ID = _getRealmInstance.All<Employee>().Count() + 1;
                     _getRealmInstance.Write(() =>
@@ -75,7 +76,7 @@ namespace BicyclesCecoApp.ViewModels
                     var EmployeeUpdate = new Employee
                     {
                         ID = _employee.ID,
-                        BicycleId = _employee.BicycleId,                        
+                        BicycleId = _employee.BicycleId,
                         Deposit = _employee.Deposit,
                         FirstName = _employee.FirstName,
                         LastName = _employee.LastName,
@@ -162,10 +163,14 @@ namespace BicyclesCecoApp.ViewModels
         {
             get
             {
-                return new Command( () =>
-               {
-                   var mng = new SmsManager();
-                   mng.Send(_employee); 
+                return new Command(() =>
+                {
+                    _getRealmInstance.Write(() =>
+                    {
+                        var mng = new SmsManager();
+                        mng.Send(_employee);
+                        _getRealmInstance.Add(_employee, update: true);                        
+                    });                    
                 });
             }
         }

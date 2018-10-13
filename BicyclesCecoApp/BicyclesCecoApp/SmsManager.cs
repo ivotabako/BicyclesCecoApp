@@ -21,7 +21,7 @@ namespace BicyclesCecoApp
             var request = new RestSharp.RestRequest("mtsms", RestSharp.Method.POST);
             request.AddJsonBody(new
             {
-                sender = "BicyclesCeco",
+                sender = "BiciCeco",
                 recipients = new[] { new { msisdn = item.CardNumber } },
                 message = item.LockUnlockMessage
             });
