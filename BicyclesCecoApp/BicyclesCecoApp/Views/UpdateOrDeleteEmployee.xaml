@@ -6,7 +6,7 @@
     <ContentPage.BindingContext>
         <customerVm:EmployeeViewModel/>
     </ContentPage.BindingContext>
-    <ContentPage.Content>
+    <ScrollView>
         <StackLayout Padding="20">
             <Label Text="Enter Employee Id for Update/Delete"/>
             <Entry Text="{Binding Employee.ID, Mode=TwoWay}"/>
@@ -64,5 +64,5 @@
           Command="{Binding ForceLockUnlockCommand}"/>
             
         </StackLayout>
-    </ContentPage.Content>
+    </ScrollView>
 </ContentPage>
