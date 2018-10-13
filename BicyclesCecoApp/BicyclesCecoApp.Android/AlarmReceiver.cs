@@ -23,13 +23,12 @@ namespace BicyclesCecoApp
                 var listOfEmployees = _getRealmInstance.All<Employee>().ToList();
                 foreach (Employee item in listOfEmployees)
                 {
-                    if (EmployeesManager.ShouldLockDaily(item) ||
+                    if ((EmployeesManager.ShouldLockDaily(item) ||
                         EmployeesManager.ShouldUnlockDaily(item) ||
                         EmployeesManager.ShouldLockNightly(item) ||
-                        EmployeesManager.ShouldUnlockNightly(item) ||
-                        item.ForceSend)
-                    {
-                        item.ForceSend = false;
+                        EmployeesManager.ShouldUnlockNightly(item)) &&
+                        !item.Manual)
+                    {                        
                         var mng = new SmsManager();
                         mng.Send(item);
                         _getRealmInstance.Add(item, update: true);

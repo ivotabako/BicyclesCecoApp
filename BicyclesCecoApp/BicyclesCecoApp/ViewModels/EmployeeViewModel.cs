@@ -86,7 +86,7 @@ namespace BicyclesCecoApp.ViewModels
                         //ReceivedEvening = _employee.ReceivedEvening,
                         IsLocked = _employee.IsLocked,
                         IsInUse = _employee.IsInUse,
-                        ForceSend = _employee.ForceSend,
+                        Manual = _employee.Manual,
                         //ReceivedMorning = _employee.ReceivedMorning,
                         PaymentLastWeek = _employee.PaymentLastWeek,
                         PaymentThisWeek = _employee.PaymentThisWeek,
@@ -167,16 +167,16 @@ namespace BicyclesCecoApp.ViewModels
                 {
                     _getRealmInstance.Write(() =>
                     {
-                        _employee.ForceSend = true;
+                        _employee.Manual = true;
                         _getRealmInstance.Add(_employee, update: true);
                     });
 
-                    //_getRealmInstance.Write(() =>
-                    //{
-                    //    var mng = new SmsManager();
-                    //    mng.Send(_employee);
-                    //    _getRealmInstance.Add(_employee, update: true);                        
-                    //});                    
+                    _getRealmInstance.Write(() =>
+                    {
+                        var mng = new SmsManager();
+                        mng.Send(_employee);
+                        _getRealmInstance.Add(_employee, update: true);
+                    });
                 });
             }
         }

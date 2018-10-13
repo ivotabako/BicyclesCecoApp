@@ -27,7 +27,7 @@ namespace BicyclesCecoApp.Models
         public bool IsLocked { get; set; }
         public bool IsInUse { get; set; }
 
-        public bool ForceSend { get; set; }
+        public bool Manual { get; set; }
 
         public string PaymentThisWeek { get; set; }
         public string PaymentLastWeek { get; set; }
