@@ -34,7 +34,7 @@ namespace BicyclesCecoApp
             {
                 item.HasReceivedConfirmation = false;
                 var res = Newtonsoft.Json.Linq.JObject.Parse(response.Content);
-                item.MessageId = res["ids"].ToString();
+                item.MessageId = res["ids"][0].ToString();
                 Console.WriteLine(res);
 
                 //handler res;
@@ -78,7 +78,7 @@ namespace BicyclesCecoApp
             if ((int)response.StatusCode == 200)
             {                
                 var res = Newtonsoft.Json.Linq.JObject.Parse(response.Content);
-                if(res["dsnstatus"].ToString() == "DELIVERED")
+                if(res["recipients"][0]["dsnstatus"].ToString() == "DELIVERED")
                 {
                     item.HasReceivedConfirmation = true;
                     item.IsLocked = !item.IsLocked;

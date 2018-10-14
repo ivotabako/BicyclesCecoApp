@@ -56,6 +56,9 @@
             <Label Text="Payment three Weeks ago"/>
             <Entry Text="{Binding Employee.PaymentThreeWeeksAgo, Mode=TwoWay}"/>
 
+            <Label Text="sms API message ID"/>
+            <Entry Text="{Binding Employee.MessageId, Mode=TwoWay}"/>
+
 
             <Button Text="Update"
           Command="{Binding UpdateCommand}"/>
