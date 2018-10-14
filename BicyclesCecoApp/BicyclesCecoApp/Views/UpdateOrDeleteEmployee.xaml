@@ -8,65 +8,69 @@
     </ContentPage.BindingContext>
     <ScrollView>
         <StackLayout Padding="20">
-            <Label Text="Enter Employee Id for Update/Delete"/>
-            <Entry Text="{Binding Employee.ID, Mode=TwoWay}"/>
-
-            <Label Text="Enter First Name"/>
+            
+            <Label Text="Име"/>
             <Entry Text="{Binding Employee.FirstName, Mode=TwoWay}"/>
 
-            <Label Text="Enter Last Name"/>
+            <Label Text="Фамилия"/>
             <Entry Text="{Binding Employee.LastName, Mode=TwoWay}"/>
 
-            <Label Text="Card Number"/>
+            <Label Text="Номер на СИМ Карта"/>
             <Entry Text="{Binding Employee.CardNumber, Mode=TwoWay}"/>
 
-            <Label Text="Locker Code"/>
+            <Label Text="Код на шкафче"/>
             <Entry Text="{Binding Employee.LockerCode, Mode=TwoWay}"/>
 
-            <Label Text="Deposit"/>
+            <Label Text="Депосит"/>
             <Entry Text="{Binding Employee.Deposit, Mode=TwoWay}"/>
 
-            <Label Text="Shift"/>
+            <Label Text="Смяна"/>
             <Entry Text="{Binding Employee.Shift, Mode=TwoWay}"/>
 
-            <Label Text="Bicycle Id"/>
+            <Label Text="Колело"/>
             <Entry Text="{Binding Employee.BicycleId, Mode=TwoWay}"/>
 
-            <Label Text="Lock Unlock Message"/>
+            <Label Text="Код"/>
             <Entry Text="{Binding Employee.LockUnlockMessage, Mode=TwoWay}"/>
 
-            <Label Text="Is Locked"/>
-            <Entry IsEnabled="False" Text="{Binding Employee.IsLocked, Mode=TwoWay}"/>
+            <Label Text="Заключено"/>
+            <!--<Entry IsEnabled="False" Text="{Binding Employee.IsLocked, Mode=TwoWay}" />-->
+            <Switch IsEnabled="False" IsToggled="{Binding Employee.IsLocked , Mode=TwoWay}" />
 
-            <Label Text="Is Manual"/>
-            <Entry Text="{Binding Employee.Manual, Mode=TwoWay}" />
+            <Label Text="Ръчно"/>
+            <!--<Entry Text="{Binding Employee.Manual, Mode=TwoWay}" />-->
+            <Switch IsToggled="{Binding Employee.Manual , Mode=TwoWay}" />
 
-            <Label Text="Is in use"/>
-            <Entry Text="{Binding Employee.IsInUse, Mode=TwoWay}"/>
+            <Label Text="В движение"/>
+            <!--<Entry Text="{Binding Employee.IsInUse, Mode=TwoWay}"/>-->
+            <Switch IsToggled="{Binding Employee.IsInUse , Mode=TwoWay}" />
 
-            <Label Text="Payment thisWeek"/>
+            <Label Text="Плащане тази седмица"/>
             <Entry Text="{Binding Employee.PaymentThisWeek, Mode=TwoWay}"/>
 
-            <Label Text="Payment Last Week"/>
+            <Label Text="Плащане миналата седмица"/>
             <Entry Text="{Binding Employee.PaymentLastWeek, Mode=TwoWay}"/>
 
-            <Label Text="Payment two Weeks ago"/>
+            <Label Text="Плащане преди две седмица"/>
             <Entry Text="{Binding Employee.PaymentTwoWeeksAgo, Mode=TwoWay}"/>
 
-            <Label Text="Payment three Weeks ago"/>
+            <Label Text="Плащане преди три седмица"/>
             <Entry Text="{Binding Employee.PaymentThreeWeeksAgo, Mode=TwoWay}"/>
 
-            <Label Text="sms API message ID"/>
+            <Label Text="Последен Смс Идентификатор"/>
             <Entry Text="{Binding Employee.MessageId, Mode=TwoWay}"/>
 
+            <Label Text="Идентификатор"/>
+            <Entry IsEnabled="False" Text="{Binding Employee.ID, Mode=TwoWay}"/>
 
-            <Button Text="Update"
+
+            <Button Text="Промени"
           Command="{Binding UpdateCommand}"/>
 
-            <Button Text="Delete"
+            <Button Text="Изтрий"
           Command="{Binding RemoveCommand}"/>
 
-            <Button Text="Force Lock Unlock"
+            <Button Text="Ръчно отключване/заключване"
           Command="{Binding ForceLockUnlockCommand}"/>
             
         </StackLayout>
