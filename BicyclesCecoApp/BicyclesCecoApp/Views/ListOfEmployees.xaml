@@ -7,30 +7,22 @@
         <customerVm:EmployeeViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        
+
         <ListView ItemsSource="{Binding ListOfEmployees}"
-                  ItemSelected="Handle_ItemSelected"
-          HasUnevenRows="True">
-            <ListView.Header>
-                <StackLayout  Orientation="Horizontal">
-                    <Label Text="Id"  />
-                    <Label Text="Name" />
-                    <Label Text="Shift" />
-                    <Label Text="In Use"  />
-                    <Label Text="Locked"/>
-                    <Label Text="Manual"/>
-                </StackLayout>
-            </ListView.Header>
+                  ItemSelected="Handle_ItemSelected"          >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
+                    <ViewCell >
                         <StackLayout  Orientation="Horizontal">
-                            <Label Text="{Binding BicycleId}" />
-                            <Label Text="{Binding FirstName}" />
-                                <Label Text="{Binding Shift}" />
-                              <Label Text="{Binding IsInUse}" />
-                             <Label Text="{Binding IsLocked}" />
-                            <Label Text="{Binding Manual}" />
+                            
+                            <Label Text="{Binding BicycleId}" HorizontalOptions="Fill" />
+                            
+                            <Label Text="{Binding FirstName}" HorizontalOptions="Start"/>
+                            
+                            <Label Text="{Binding Shift}" HorizontalOptions="Start"/>
+                                                                                  
+                            <Switch IsEnabled="False" IsToggled="{Binding IsLocked}" HorizontalOptions="Start"/>
+                            
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

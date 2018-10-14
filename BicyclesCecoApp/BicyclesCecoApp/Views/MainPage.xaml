@@ -8,9 +8,9 @@
         <customerVm:EmployeeViewModel/>
     </ContentPage.BindingContext>
     <StackLayout Padding="20">
-        <Button Text="List Of Employees"
+        <Button Text="Списък"
           Command="{Binding NavToListCommand}"/>
-        <Button Text="Create Employee Details"
+        <Button Text="Добави нов"
           Command="{Binding NavToCreateCommand}"/>
         
     </StackLayout>
