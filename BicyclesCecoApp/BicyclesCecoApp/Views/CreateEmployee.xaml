@@ -36,7 +36,7 @@
             <Entry IsEnabled="False" Text="{Binding Employee.IsLocked, Mode=TwoWay}" />
 
             <Label Text="Is Manual"/>
-            <Entry IsEnabled="False" Text="{Binding Employee.Manual, Mode=TwoWay}" />
+            <Entry Text="{Binding Employee.Manual, Mode=TwoWay}" />
 
             <Label Text="Is in use"/>
             <Entry Text="{Binding Employee.IsInUse, Mode=TwoWay}"/>

@@ -18,7 +18,7 @@
             <Entry Text="{Binding Employee.LastName, Mode=TwoWay}"/>
 
             <Label Text="Card Number"/>
-            <Entry IsEnabled="False" Text="{Binding Employee.CardNumber, Mode=TwoWay}"/>
+            <Entry Text="{Binding Employee.CardNumber, Mode=TwoWay}"/>
 
             <Label Text="Locker Code"/>
             <Entry Text="{Binding Employee.LockerCode, Mode=TwoWay}"/>
@@ -30,7 +30,7 @@
             <Entry Text="{Binding Employee.Shift, Mode=TwoWay}"/>
 
             <Label Text="Bicycle Id"/>
-            <Entry IsEnabled="False" Text="{Binding Employee.BicycleId, Mode=TwoWay}"/>
+            <Entry Text="{Binding Employee.BicycleId, Mode=TwoWay}"/>
 
             <Label Text="Lock Unlock Message"/>
             <Entry Text="{Binding Employee.LockUnlockMessage, Mode=TwoWay}"/>
@@ -39,7 +39,7 @@
             <Entry IsEnabled="False" Text="{Binding Employee.IsLocked, Mode=TwoWay}"/>
 
             <Label Text="Is Manual"/>
-            <Entry IsEnabled="False" Text="{Binding Employee.Manual, Mode=TwoWay}" />
+            <Entry Text="{Binding Employee.Manual, Mode=TwoWay}" />
 
             <Label Text="Is in use"/>
             <Entry Text="{Binding Employee.IsInUse, Mode=TwoWay}"/>
