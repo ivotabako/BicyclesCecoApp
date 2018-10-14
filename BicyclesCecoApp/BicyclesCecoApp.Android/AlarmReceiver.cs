@@ -18,23 +18,38 @@ namespace BicyclesCecoApp
         public override void OnReceive(Context context, Intent intent)
         {
             Realm _getRealmInstance = Realm.GetInstance();
-            _getRealmInstance.Write(() =>
+
+            var listOfEmployees = _getRealmInstance.All<Employee>().ToList();
+            foreach (Employee item in listOfEmployees)
             {
-                var listOfEmployees = _getRealmInstance.All<Employee>().ToList();
-                foreach (Employee item in listOfEmployees)
+                if ((EmployeesManager.ShouldLockDaily(item) ||
+                    EmployeesManager.ShouldUnlockDaily(item) ||
+                    EmployeesManager.ShouldLockNightly(item) ||
+                    EmployeesManager.ShouldUnlockNightly(item)) &&
+                    !item.Manual &&
+                    (!item.HasReceivedConfirmation.HasValue ||
+                        (item.HasReceivedConfirmation.HasValue && item.HasReceivedConfirmation.Value)
+                    )
+                )
                 {
-                    if ((EmployeesManager.ShouldLockDaily(item) ||
-                        EmployeesManager.ShouldUnlockDaily(item) ||
-                        EmployeesManager.ShouldLockNightly(item) ||
-                        EmployeesManager.ShouldUnlockNightly(item)) &&
-                        !item.Manual)
-                    {                        
+                    _getRealmInstance.Write(() =>
+                    {
                         var mng = new SmsManager();
                         mng.Send(item);
                         _getRealmInstance.Add(item, update: true);
-                    }
+                    });
                 }
-            });
+
+                if (item.HasReceivedConfirmation.HasValue && !item.HasReceivedConfirmation.Value)
+                {
+                    _getRealmInstance.Write(() =>
+                    {
+                        var mng = new SmsManager();
+                        mng.GetConfirmation(item);
+                        _getRealmInstance.Add(item, update: true);
+                    });
+                }
+            }
         }
     }
 }

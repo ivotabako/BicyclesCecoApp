@@ -24,6 +24,9 @@ namespace BicyclesCecoApp.Models
         //public bool ReceivedMorning { get; set; }
         //public bool ReceivedEvening { get; set; }
 
+        public bool? HasReceivedConfirmation { get; set; }
+        public string MessageId { get; set; }
+
         public bool IsLocked { get; set; }
         public bool IsInUse { get; set; }
 

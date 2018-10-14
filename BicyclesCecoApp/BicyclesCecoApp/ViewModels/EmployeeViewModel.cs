@@ -83,11 +83,11 @@ namespace BicyclesCecoApp.ViewModels
                         LockerCode = _employee.LockerCode,
                         CardNumber = _employee.CardNumber,
                         LockUnlockMessage = _employee.LockUnlockMessage,
-                        //ReceivedEvening = _employee.ReceivedEvening,
+                        HasReceivedConfirmation = _employee.HasReceivedConfirmation,
                         IsLocked = _employee.IsLocked,
                         IsInUse = _employee.IsInUse,
                         Manual = _employee.Manual,
-                        //ReceivedMorning = _employee.ReceivedMorning,
+                        MessageId = _employee.MessageId,
                         PaymentLastWeek = _employee.PaymentLastWeek,
                         PaymentThisWeek = _employee.PaymentThisWeek,
                         PaymentThreeWeeksAgo = _employee.PaymentThreeWeeksAgo,
@@ -171,12 +171,17 @@ namespace BicyclesCecoApp.ViewModels
                         _getRealmInstance.Add(_employee, update: true);
                     });
 
-                    _getRealmInstance.Write(() =>
+                    if(!_employee.HasReceivedConfirmation.HasValue ||
+                        (_employee.HasReceivedConfirmation.HasValue && _employee.HasReceivedConfirmation.Value)
+                    )
                     {
-                        var mng = new SmsManager();
-                        mng.Send(_employee);
-                        _getRealmInstance.Add(_employee, update: true);
-                    });
+                        _getRealmInstance.Write(() =>
+                        {
+                            var mng = new SmsManager();
+                            mng.Send(_employee);
+                            _getRealmInstance.Add(_employee, update: true);
+                        });
+                    }                   
                 });
             }
         }
