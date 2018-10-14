@@ -18,6 +18,7 @@
                     <Label Text="Shift" />
                     <Label Text="In Use"  />
                     <Label Text="Locked"/>
+                    <Label Text="Manual"/>
                 </StackLayout>
             </ListView.Header>
             <ListView.ItemTemplate>
@@ -29,6 +30,7 @@
                                 <Label Text="{Binding Shift}" />
                               <Label Text="{Binding IsInUse}" />
                              <Label Text="{Binding IsLocked}" />
+                            <Label Text="{Binding Manual}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

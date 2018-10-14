@@ -31,8 +31,7 @@ namespace BicyclesCecoApp
             // On 200 OK, parse the list of SMS IDs else print error
             if ((int)response.StatusCode == 200)
             {
-                item.IsLocked = !item.IsLocked;
-                //item.ForceSend = false;
+                item.IsLocked = !item.IsLocked;                
                 var res = Newtonsoft.Json.Linq.JObject.Parse(response.Content);
                 Console.WriteLine(res);
                 //handler res;
